@@ -13,6 +13,8 @@ import java.util.List;
 @Controller
 public class CountryController {
     private final CountryService countryService;
+
+    private final String REDIRECT_LIST = "redirect:/countries";
     @Autowired
     public CountryController(CountryService countryService) {
         this.countryService = countryService;
@@ -33,13 +35,13 @@ public class CountryController {
     @PostMapping("/country-create")
     public String createCountry(Country country) {
         countryService.saveCountry(country);
-        return "redirect:/countries";
+        return REDIRECT_LIST;
     }
 
     @GetMapping("/country-delete/{id}")
     public String deleteCountry(@PathVariable("id") Long id) {
         countryService.deleteById(id);
-        return "redirect:/countries";
+        return REDIRECT_LIST;
     }
 
     @GetMapping("/country-update/{id}")
@@ -52,7 +54,7 @@ public class CountryController {
     @PostMapping("/country-update")
     public String countryUpdate(Country country) {
         countryService.saveCountry(country);
-        return "redirect:/countries";
+        return REDIRECT_LIST;
     }
 
 }

@@ -12,6 +12,9 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    private SecurityConfig() {
+        throw new IllegalStateException("Utility class");
+    }
     @Configuration
     @Profile("!production") // Apply only when not in production
     public static class DevelopmentSecurityConfig {

@@ -19,6 +19,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    private final String REDIRECT_LIST = "redirect:/users";
     @GetMapping("/users")
     public String findAll(Model model) {
         List<User> users = userService.findAll();
@@ -34,13 +35,13 @@ public class UserController {
     @PostMapping("/user-create")
     public String createUser(User user) {
         userService.saveUser(user);
-        return "redirect:/users";
+        return REDIRECT_LIST;
     }
 
     @GetMapping("/user-delete/{id}")
     public String deleteUser(@PathVariable("id") Long id) {
         userService.deleteUserById(id);
-        return "redirect:/users";
+        return REDIRECT_LIST;
     }
 
     @GetMapping("/user-update/{id}")
@@ -53,7 +54,7 @@ public class UserController {
     @PostMapping("/user-update")
     public String userUpdate(User user) {
         userService.saveUser(user);
-        return "redirect:/users";
+        return REDIRECT_LIST;
     }
 
 }

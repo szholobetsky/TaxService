@@ -117,7 +117,6 @@ class CountryTaxHistoryServiceTest extends EasyMockSupport {
         CountryTaxHistory itemCurr = new CountryTaxHistory();
         itemCurr.setCountry(usa);
         itemCurr.setTaxType(irl);
-        //itemCurr.setActualBefore(null);
         itemCurr.setTaxRate(5D);
 
         List<CountryTaxHistory> list = new ArrayList<>();
@@ -160,7 +159,6 @@ class CountryTaxHistoryServiceTest extends EasyMockSupport {
         CountryTaxHistory itemCurr = new CountryTaxHistory();
         itemCurr.setCountry(usa);
         itemCurr.setTaxType(irl);
-        //itemCurr.setActualBefore(null);
         itemCurr.setTaxRate(5D);
 
         List<CountryTaxHistory> list = new ArrayList<>();
@@ -202,7 +200,6 @@ class CountryTaxHistoryServiceTest extends EasyMockSupport {
         CountryTaxHistory itemCurr = new CountryTaxHistory();
         itemCurr.setCountry(usa);
         itemCurr.setTaxType(irl);
-        //itemCurr.setActualBefore(null);
         itemCurr.setTaxRate(5D);
 
         List<CountryTaxHistory> list = new ArrayList<>();

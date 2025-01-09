@@ -29,10 +29,6 @@ public class CountryTaxHistoryService {
         return countryTaxHistoryRepository.findAllByCountryAndTaxTypeOrderByActualBeforeDesc(country, taxType).stream().findFirst().orElse(null);
     }
 
-/*    public CountryTaxHistory findLastBeforeDateTaxFromHistoryByCountryAndTaxType(Country country, TaxType taxType, Date actualDate) {
-        return countryTaxHistoryRepository.findAllByCountryAndTaxTypeOrderByActualBeforeDesc(country, taxType).stream().filter(it-> actualDate == null || actualDate.before(it.getActualBefore() != null ? it.getActualBefore() : new Date(Long.MAX_VALUE))).sorted().findFirst().orElse(null);
-    }*/
-
     public CountryTaxHistory findLastBeforeDateTaxFromHistoryByCountryAndTaxType(Country country, TaxType taxType, Date actualDate) {
         return countryTaxHistoryRepository.findAllByCountryAndTaxTypeOrderByActualBeforeAsc(country, taxType).stream()
 

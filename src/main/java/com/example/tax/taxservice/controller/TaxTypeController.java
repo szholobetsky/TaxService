@@ -18,6 +18,7 @@ public class TaxTypeController {
         this.taxTypeService = taxTypeService;
     }
 
+    private final String REDIRECT_LIST = "redirect:/tax-types";
     @GetMapping("/tax-types")
     public String findAll(Model model) {
         List<TaxType> taxTypes = taxTypeService.findAll();
@@ -33,13 +34,13 @@ public class TaxTypeController {
     @PostMapping("/tax-type-create")
     public String createTaxType(TaxType taxType) {
         taxTypeService.saveTaxType(taxType);
-        return "redirect:/tax-types";
+        return REDIRECT_LIST;
     }
 
     @GetMapping("/tax-type-delete/{id}")
     public String deleteTaxType(@PathVariable("id") Long id) {
         taxTypeService.deleteTaxTypeById(id);
-        return "redirect:/tax-types";
+        return REDIRECT_LIST;
     }
 
     @GetMapping("/tax-type-update/{id}")
@@ -52,7 +53,7 @@ public class TaxTypeController {
     @PostMapping("/tax-type-update")
     public String taxTypeUpdate(TaxType taxType) {
         taxTypeService.saveTaxType(taxType);
-        return "redirect:/tax-types";
+        return REDIRECT_LIST;
     }
 
 }

@@ -26,7 +26,6 @@
   </select>
   <br/>
   <label for="actualBefore">Actual Before</label>
-  <!-- <input type="date" th:field="*{actualBefore|**{yyyy-MM-dd}**}" id="actualBefore" placeholder="Actual Before">-->
   <input type="date" th:field="*{actualBefore}" th:value="${#dates.format(actualBefore, 'yyyy-MM-dd')}" id="actualBefore" placeholder="Actual Before">
   <br/>
   <label for="taxRate">Tax Rate</label>

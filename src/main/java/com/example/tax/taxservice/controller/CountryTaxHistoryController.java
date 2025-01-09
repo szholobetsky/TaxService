@@ -28,6 +28,7 @@ public class CountryTaxHistoryController {
         this.countryService = countryService;
         this.taxTypeService = taxTypeService;
     }
+    private final String REDIRECT_LIST = "redirect:/tax-histories";
 
     @GetMapping("/tax-histories")
     public String findAll(Model model) {
@@ -47,13 +48,13 @@ public class CountryTaxHistoryController {
     @PostMapping("/tax-history-create")
     public String createTaxHistory(CountryTaxHistory countryTaxHistory) {
         countryTaxHistoryService.saveTaxHistory(countryTaxHistory);
-        return "redirect:/tax-histories";
+        return REDIRECT_LIST;
     }
 
     @GetMapping("/tax-history-delete/{id}")
     public String deleteTaxType(@PathVariable("id") Long id) {
         countryTaxHistoryService.deleteCountryTaxHistoryById(id);
-        return "redirect:/tax-histories";
+        return REDIRECT_LIST;
     }
 
     @GetMapping("/tax-history-update/{id}")
@@ -70,6 +71,6 @@ public class CountryTaxHistoryController {
     @PostMapping("/tax-history-update")
     public String taxTypeUpdate(CountryTaxHistory countryTaxHistory) {
         countryTaxHistoryService.saveTaxHistory(countryTaxHistory);
-        return "redirect:/tax-histories";
+        return REDIRECT_LIST;
     }
 }
