@@ -19,7 +19,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    private final static String REDIRECT_LIST = "redirect:/users";
+    private static final String REDIRECT_LIST = "redirect:/users";
     @GetMapping("/users")
     public String findAll(Model model) {
         List<User> users = userService.findAll();
