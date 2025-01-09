@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Country Tax History List</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+<body>
+<div th:insert="~{index}"></div>
+<div th:switch="${countryTaxHistories}">
+  <h2 th:case="null">No history found!</h2>
+  <div th:case="*">
+    <h2>Users</h2>
+    <table class="table table-bordered table-striped border-1">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Country</th>
+        <th>Tax Type</th>
+        <th>Actual Before</th>
+        <th>Tax Rate</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="countryTaxHistory : ${countryTaxHistories}">
+        <td th:text="${countryTaxHistory.pkCountryTaxHistoryId}"></td>
+        <td th:text="${countryTaxHistory?.country?.name}"></td>
+        <td th:text="${countryTaxHistory?.taxType?.name}"></td>
+        <td th:text="${countryTaxHistory?.actualBefore?.toString()}"></td>
+        <td th:text="${countryTaxHistory?.taxRate?.toString()}"></td>
+        <td ><a th:href="@{tax-history-update/{id}(id=${countryTaxHistory.pkCountryTaxHistoryId})}">Edit</a></td>
+        <td ><a th:href="@{tax-history-delete/{id}(id=${countryTaxHistory.pkCountryTaxHistoryId})}">Delete</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <p><a href="/tax-history-create">Create new history item</a></p>
+</div>
+</body>
+</html>

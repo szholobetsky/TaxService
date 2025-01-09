@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Tax Type</title>
+</head>
+<body>
+<div th:insert="~{index}"></div>
+<div th:switch="${taxTypes}">
+  <h2 th:case="null">No tax types found!</h2>
+  <div th:case="*">
+    <h2>Tax Types</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Code</th>
+        <th>Name</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="taxType : ${taxTypes}">
+        <td th:text="${taxType.pkTaxTypeId}"></td>
+        <td th:text="${taxType.code}"></td>
+        <td th:text="${taxType.name}"></td>
+        <td ><a th:href="@{tax-type-update/{id}(id=${taxType.pkTaxTypeId})}">Edit</a></td>
+        <td ><a th:href="@{tax-type-delete/{id}(id=${taxType.pkTaxTypeId})}">Delete</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <p><a href="/tax-type-create">Create Tax Type</a></p>
+</div>
+</body>
+</html>

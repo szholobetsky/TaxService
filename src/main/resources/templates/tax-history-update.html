@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Tax History</title>
+</head>
+<body>
+<form action="#" th:action="@{/tax-history-update}" th:object="${countryTaxHistory}" method="post">
+  <label for="pkCountryTaxHistoryId">ID</label>
+  <input readonly type="number" th:field="*{pkCountryTaxHistoryId}" id="pkCountryTaxHistoryId" placeholder="ID">
+  <br/>
+  <label for="country">Country</label>
+  <select th:field="*{country}" id="country" placeholder="Country">
+    <option th:each="country : ${countries}"
+            th:value="${country.pkCountryId}"
+            th:text="${country.name}">
+    </option>
+  </select>
+  <br/>
+  <label for="taxType">Tax Type</label>
+  <select th:field="*{taxType}" id="taxType" placeholder="Tax Type">
+    <option th:each="taxType : ${taxTypes}"
+            th:value="${taxType.pkTaxTypeId}"
+            th:text="${taxType.name}">
+    </option>
+  </select>
+  <br/>
+  <label for="actualBefore">Actual Before</label>
+  <!-- <input type="date" th:field="*{actualBefore|**{yyyy-MM-dd}**}" id="actualBefore" placeholder="Actual Before">-->
+  <input type="date" th:field="*{actualBefore}" th:value="${#dates.format(actualBefore, 'yyyy-MM-dd')}" id="actualBefore" placeholder="Actual Before">
+  <br/>
+  <label for="taxRate">Tax Rate</label>
+  <input type="number" th:field="*{taxRate}" id="taxRate" placeholder="Tax Rate">
+  <br/>
+  <input type="submit" value="Update Tax History">
+</form>
+</body>
+</html>

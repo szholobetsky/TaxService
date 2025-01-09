@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Countries</title>
+</head>
+<body>
+<div th:insert="~{index}"></div>
+<div th:switch="${countries}">
+  <h2 th:case="null">No countries found!</h2>
+  <div th:case="*">
+    <h2>Countries</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Code</th>
+        <th>Name</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="country : ${countries}">
+        <td th:text="${country.pkCountryId}"></td>
+        <td th:text="${country.code}"></td>
+        <td th:text="${country.name}"></td>
+        <td ><a th:href="@{country-update/{id}(id=${country.pkCountryId})}">Edit</a></td>
+        <td ><a th:href="@{country-delete/{id}(id=${country.pkCountryId})}">Delete</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <p><a href="/country-create">Create country</a></p>
+</div>
+</body>
+</html>

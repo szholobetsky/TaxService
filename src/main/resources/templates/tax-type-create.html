@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Tax Type</title>
+</head>
+<body>
+<form action="#" th:action="@{/tax-type-create}" th:object="${taxType}" method="post">
+  <label for="code">Code</label>
+  <input type="text" th:field="*{code}" id="code" placeholder="Code">
+  <label for="name">Name</label>
+  <input type="text" th:field="*{name}" id="name" placeholder="Name">
+  <input type="submit" value="Create Tax Type">
+</form>
+</body>
+</html>
