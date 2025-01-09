@@ -28,7 +28,7 @@ public class CountryTaxHistoryController {
         this.countryService = countryService;
         this.taxTypeService = taxTypeService;
     }
-    private final String REDIRECT_LIST = "redirect:/tax-histories";
+    private final static String REDIRECT_LIST = "redirect:/tax-histories";
 
     @GetMapping("/tax-histories")
     public String findAll(Model model) {

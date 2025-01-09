@@ -18,7 +18,7 @@ public class TaxTypeController {
         this.taxTypeService = taxTypeService;
     }
 
-    private final String REDIRECT_LIST = "redirect:/tax-types";
+    private final static String REDIRECT_LIST = "redirect:/tax-types";
     @GetMapping("/tax-types")
     public String findAll(Model model) {
         List<TaxType> taxTypes = taxTypeService.findAll();

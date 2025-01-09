@@ -14,7 +14,7 @@ import java.util.List;
 public class CountryController {
     private final CountryService countryService;
 
-    private final String REDIRECT_LIST = "redirect:/countries";
+    private final static String REDIRECT_LIST = "redirect:/countries";
     @Autowired
     public CountryController(CountryService countryService) {
         this.countryService = countryService;
